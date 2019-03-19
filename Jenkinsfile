@@ -14,7 +14,7 @@ pipeline {
     stage('Docker build') {
       steps {
         container('docker') {
-          sh "docker build -t ${env.DOCKER_REPO} ."
+          sh "cd src/review-wlpcfg && docker build -t ${env.DOCKER_REPO} ."
           sh "docker tag ${env.DOCKER_REPO} ${env.DOCKER_REPO}:${env.TAG}"
         }
       }
