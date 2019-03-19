@@ -5,7 +5,7 @@ pipeline {
     label 'maven'
   }
   environment {
-    APP_NAME = "bookinfo-details"
+    APP_NAME = "bookinfo-reviews"
     VERSION = readFile('version').trim()
     DOCKER_REPO = "${env.DOCKER_REGISTRY_URL}/${env.APP_NAME}"
     TAG = "${env.VERSION}"
