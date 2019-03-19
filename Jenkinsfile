@@ -2,7 +2,7 @@
 
 pipeline {
   agent {
-    label 'golang2'
+    label 'maven'
   }
   environment {
     APP_NAME = "bookinfo-details"
@@ -14,7 +14,6 @@ pipeline {
     stage('Docker build') {
       steps {
         container('docker') {
-          sh "cd src/"
           sh "docker build -t ${env.DOCKER_REPO} ."
           sh "docker tag ${env.DOCKER_REPO} ${env.DOCKER_REPO}:${env.TAG}"
         }
